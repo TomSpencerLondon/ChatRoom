@@ -12,6 +12,22 @@
                         width: 100%; 
                         padding-right: 50px; 
                 }
+
+                #messages {
+                                list-style-type: none; 
+                                margin: 0; 
+                                padding: 0; 
+                                width: 100%; 
+                        }
+
+                        #messages li {
+                                padding: 5px 10px; 
+                        }
+
+                        #messages li:nth-child(even){
+                                color: white; 
+                                background: grey; 
+                        }
         </style>
 </head>   
 <body>
@@ -52,7 +68,7 @@
                 });
 
                 socket.on('message', (msg) =>{
-                        $('#messages').append($`<li>`).text(msg)); 
+                        $('#messages').append($(`<li>`).text(msg)); 
                 })
         </script>
 </body> 

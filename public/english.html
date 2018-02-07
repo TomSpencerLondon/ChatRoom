@@ -12,6 +12,22 @@
                                 width: 100%; 
                                 padding-right: 50px; 
                         }
+
+                        #messages {
+                                list-style-type: none; 
+                                margin: 0; 
+                                padding: 0; 
+                                width: 100%; 
+                        }
+
+                        #messages li {
+                                padding: 5px 10px; 
+                        }
+
+                        #messages li:nth-child(even){
+                                color: white; 
+                                background: grey; 
+                        }
                 </style>
         </head>   
         <body>
@@ -38,7 +54,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
-                const room = 'coding'; 
+                const room = 'english'; 
                 const socket = io.connect('/tech'); 
                 $('form').submit(()=>{
                         let msg = $('#m').val();
@@ -52,7 +68,7 @@
                 });
 
                 socket.on('message', (msg) =>{
-                        $('#messages').append($`<li>`).text(msg)); 
+                        $('#messages').append($(`<li>`).text(msg)); 
                 })
         </script>
 </body> 
