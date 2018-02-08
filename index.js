@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+var app = express();
 const server = require("http").Server(app); 
 const io = require("socket.io")(server); 
 
@@ -8,20 +9,22 @@ server.listen(port, ()=>{
     console.log(`Server is listening on Port: ${port}`); 
 });
 
+app.use(express.static('public'));
+
 app.get('/', (req, res)=>{
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/html/index.html');
 }); 
 
 app.get('/maths', (req, res)=>{
-    res.sendFile(__dirname + '/public/maths.html');
+    res.sendFile(__dirname + '/html/maths.html');
 }); 
 
 app.get('/coding', (req, res)=>{
-    res.sendFile(__dirname + '/public/coding.html');
+    res.sendFile(__dirname + '/html/coding.html');
 });
 
 app.get('/english', (req, res)=>{
-    res.sendFile(__dirname + '/public/english.html'); 
+    res.sendFile(__dirname + '/html/english.html'); 
 }); 
 
 const tech = io.of('/tech'); 
