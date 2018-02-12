@@ -6,7 +6,7 @@ const io = require("socket.io")(server);
 const port = process.env.PORT ||  3000; 
 
 server.listen(port, ()=>{
-    console.log(`Server is listening on Port: ${port}`); 
+    console.log(`Server is liigstening on Port: ${port}`); 
 });
 
 app.use(express.static('public'));
